@@ -1,0 +1,27 @@
+ -- real source
+local starPlayerIds = {3754033980, 1246860609}
+local crownPlayerIds = {1516672286}
+
+local starPlayers = {}
+for _, id in ipairs(starPlayerIds) do
+    starPlayers[id] = true
+end
+
+local crownPlayers = {}
+for _, id in ipairs(crownPlayerIds) do
+    crownPlayers[id] = true
+end
+
+function premium()
+    for _, player in pairs(game:GetService('Players'):GetChildren()) do
+        if starPlayers[player.UserId] and player.Character and player.Character.Parent.Name == 'Players' then
+            player.Character:FindFirstChildWhichIsA('Humanoid').DisplayName = ('[🤓]'..player.DisplayName)
+        elseif crownPlayers[player.UserId] and player.Character and player.Character.Parent.Name == 'Players' then
+            player.Character:FindFirstChildWhichIsA('Humanoid').DisplayName = ('[🤑]'..player.DisplayName)
+        end
+    end
+end
+
+local success, err = pcall(premium)
+
+return starPlayers
