@@ -1,6 +1,5 @@
- -- real source
-local starPlayerIds = {3754033980, 1246860609}
-local crownPlayerIds = {1516672286}
+local starPlayerIds = {3771043550, 1246860609, 3754033980}
+local crownPlayerIds = {1516672286, 4066164440}
 
 local starPlayers = {}
 for _, id in ipairs(starPlayerIds) do
@@ -15,7 +14,7 @@ end
 function premium()
     for _, player in pairs(game:GetService('Players'):GetChildren()) do
         if starPlayers[player.UserId] and player.Character and player.Character.Parent.Name == 'Players' then
-            player.Character:FindFirstChildWhichIsA('Humanoid').DisplayName = ('[🤓]'..player.DisplayName)
+            player.Character:FindFirstChildWhichIsA('Humanoid').DisplayName = ('[✨]'..player.DisplayName)
         elseif crownPlayers[player.UserId] and player.Character and player.Character.Parent.Name == 'Players' then
             player.Character:FindFirstChildWhichIsA('Humanoid').DisplayName = ('[🤑]'..player.DisplayName)
         end
